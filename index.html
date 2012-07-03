@@ -68,10 +68,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+    <title>Le monitoring, une histoire de bulle | by Nicolas Hennion @nicolargo</title>
     
-    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
-    <meta name="author" content="Bartek Szopka" />
+    <meta name="description" content="Le monitoring, une histoire de bulle" />
+    <meta name="author" content="Nicolargo" />
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
@@ -94,6 +94,28 @@
     
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <script>
+       window.onload = function() {
+            var name, list = [ 'bulle1', 'bulle2', 'bulle3', 'bulle4', 'bulle5', 'bulle6' ]
+            for (name=0; name < list.length; ++name) {
+                var canvas = document.getElementById(list[name]);
+                var context = canvas.getContext("2d");
+                var centerX = canvas.width / 2;
+                var centerY = canvas.height / 2;
+                var radius = 100;
+
+                context.beginPath();
+                context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+                context.fillStyle = "#8ED6FF";
+                context.fill();
+                context.lineWidth = 5;
+                context.strokeStyle = "black";
+                context.stroke();
+            }
+      };
+    </script>
+
 </head>
 
 <!--
@@ -164,134 +186,141 @@
         It will not be rotated or scaled.
         
     -->
-    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
-        <q>Aren't you just <b>bored</b> with all those slides-based presentations?</q>
+    <div id="slide0" class="step" data-x="-10000" data-y="0">
+        <p>Nicolas Hennion</p>
+        <span class="low">14 ans dans les systèmes d'informations</span>
+        <br />
+        <p class="left">@nicolargo</p>
+        <p class="low left">6 ans dans la blogosphère</p>        
+        <p class="small left">Le blog de Nicolargo</p>
     </div>
 
-    <!--
-        
-        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
-        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
-        
-        So in the example below it'll be `step-2`.
-        
-        The hash part of the url when this step is active will be `#/step-2`.
-        
-        You can also use `#step-2` in a link, to point directly to this particular step.
-        
-        Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
-        Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
-        
-    -->
-    <div class="step slide" data-x="0" data-y="-1500">
-        <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
+    <div id="slide1" class="step" data-x="0" data-y="0">
+        <p>Une simple histoire de <b>bulles...</b></p>
+        <canvas id="bulle1" width="600" height="300"></canvas>
     </div>
 
-    <div class="step slide" data-x="1000" data-y="-1500">
-        <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+    <div id="slide2" class="step" data-x="0" data-y="1000" data-scale="2">
+        <span class="first">Des administrateurs...</span>
+        <h1>intelligents</h1>
+        <span class="footnote"><sup>*</sup> mais souvent barbus</span>
     </div>
 
-    <!--
-        
-        This is an example of step element being scaled.
-        
-        Again, we use a `data-` attribute, this time it's `data-scale="4"`, so it means that this
-        element will be 4 times larger than the others.
-        From presentation and transitions point of view it means, that it will have to be scaled
-        down (4 times) to make it back to it's correct size.
-        
-    -->
-    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <span class="try">then you should try</span>
-        <h1>impress.js<sup>*</sup></h1>
-        <span class="footnote"><sup>*</sup> no rhyme intended</span>
+    <div id="slide3" class="step" data-x="0" data-y="4000" data-rotate="90" data-scale="5">
+        <p>Avec des outils simples: <br/>
+        <b class="rotating">ping, telnet...</b> pour les admi<strong>net</strong><br/>
+        <b class="rotating">ps, top...</b> pour les admin<strong>sys</strong>.</p>
+    </div>
+    
+    <div id="slide4" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+        <p>Une bulle basée<b>sur</b> <span class="thoughts">l'homme</span></p>
     </div>
 
-    <!--
-        
-        This element introduces rotation.
-        
-        Notation shouldn't be a surprise. We use `data-rotate="90"` attribute, meaning that this
-        element should be rotated by 90 degrees clockwise.
-        
-    -->
-    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-        <p>It's a <strong>presentation tool</strong> <br/>
-        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+    <div id="slide5" class="step" data-x="3500" data-y="2100" data-z="-4000" data-rotate="300" data-scale="1">
+        <p>avec ces <b>contraintes</b></p>
+    </div>
+    
+    <div id="slide6" class="step" data-x="3500" data-y="-2000" data-rotate="270" data-scale="6">
+        <p>Vint ensuite, la bulle</p>
+        <p>des logiciels <b class="positioning">"maison"</b></p>
+        <canvas id="bulle2" width="600" height="300"></canvas>
+    </div>
+    
+    <div id="slide7" class="step" data-x="0" data-y="-1000" data-scale="3">
+        <p>Administrateur <b>-ne</b> <b class="imagination">Developpeur</b></p>
+    </div>    
+    
+    <div id="slide8" class="step" data-x="-2000" data-y="-1000" data-scale="3">
+        <div class="center"><img src="img/poorman.jpg" /></div>
+        <div class="conv">
+            <p><b class="name">Dev</b>: J'ai utilisé JEE et Corba pour ton application !<br /><b class="name">Admin</b>: WTF !!!</p>       
+        </div>
+    </div>        
+    
+    <div id="slide9" class="step" data-x="-2500" data-y="2000" data-rotate="180" data-scale="3">
+        <p>La bulle avec...</p>
+        <img src="img/businessman.jpg" />
+        <q>...moins de barbe</q>
+    </div>    
+    
+    <div id="slide10" class="step" data-x="-2500" data-y="500" data-rotate="0" data-scale="4">
+        Monopole d'un <b>géant</b>...
+    </div>    
+
+    <div id="slide11" class="step" data-x="-2500" data-y="4000" data-rotate="0" data-scale="4">
+        <q>...HP OpenView</q>
+        <img src="img/hpov.jpg" /><br />
+    </div>    
+
+    <div id="slide12" class="step" data-x="3500" data-y="5000" data-rotate="0" data-scale="3">
+        <p><span class="trop">(trop)</span> Comple[t|exe]<br />
+        <span class="trop">(trop)</span> Propriétaire<br />
+        <span class="trop">(trop)</span> Cher<br /></p>
+    </div>
+    
+    <div id="slide13" class="step" data-x="5000" data-y="-2000" data-rotate="180" data-scale="5">
+        <p>La bulle libre !</p>
+        <canvas id="bulle2" width="600" height="300"></canvas>
     </div>
 
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+    <div id="slide14" class="step" data-x="5000" data-y="5000" data-rotate="0" data-scale="2">
+        <p>« Un logiciel pour les gouverner tous. Un logiciel pour les trouver. Un logiciel pour les amener tous et dans les ténèbres les lier. »</p>
+        <p class="tiny">« Ash log durbatulûk, ash log gimbatul, Ash log thrakatulûk agh burzum-ishi krimpatul. »</p>
     </div>
 
-    <!--
-        
-        And now it gets really exiting! We move into third dimension!
-        
-        Along with `data-x` and `data-y`, you can define the position on third (Z) axis, with
-        `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
-        positioned far away from us (by 3000px).
-        
-    -->
-    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-        <p>and <b>tiny</b> ideas</p>
-    </div>
+    <div id="slide15" class="step" data-x="6500" data-y="5000" data-rotate="0" data-scale="1">
+        <img src="img/nagios.png" /><br />
+        <q>Nagios dans toute sa splendeur</q>
+    </div>    
+    
+    <div id="slide16" class="step" data-x="6500" data-y="500" data-rotate="180" data-scale="3">
+        <img src="img/ethan.jpg" /><br />
+        <q>Ethan Galstad (<i>aka</i> fork generator)</q>
+    </div>    
+    
+    <div id="slide17" class="step" data-x="8000" data-y="-2000" data-rotate="90" data-scale="3">
+        <p><b class="highlight">Nagios</b> devient multiple (Core, XI, Fusion, Mobile)...</p>
+        <p>... mais <b class="highlight">moins libre</b>.</p>
+    </div>    
 
-    <!--
-        
-        This step here doesn't introduce anything new when it comes to data attributes, but you
-        should notice in the demo that some words of this text are being animated.
-        It's a very basic CSS transition that is applied to the elements when this step element is
-        reached.
-        
-        At the very beginning of the presentation all step elements are given the class of `future`.
-        It means that they haven't been visited yet.
-        
-        When the presentation moves to given step `future` is changed to `present` class name.
-        That's how animation on this step works - text moves when the step has `present` class.
-        
-        Finally when the step is left the `present` class is removed from the element and `past`
-        class is added.
-        
-        So basically every step element has one of three classes: `future`, `present` and `past`.
-        Only one current step has the `present` class.
-        
-    -->
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
-    </div>
+    <div id="slide18" class="step" data-x="7000" data-y="1500" data-rotate="0" data-scale="1">
+        <p>Explosion de la bulle libre</p>
+        <canvas id="bulle3" width="210" height="210"></canvas>        
+        <canvas id="bulle4" width="210" height="210"></canvas>        
+        <canvas id="bulle5" width="210" height="210"></canvas>        
+    </div>    
 
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-    </div>
+    <div id="slide19" class="step" data-x="7000" data-y="2500" data-rotate="0" data-scale="2">
+        <p>Forks, dérivés et alternatives:<br />
+        <img src="img/centreon.jpg" />
+        <img src="img/icinga.jpg" />
+        <img src="img/zenoss.gif" />
+        <img src="img/shinken.jpg" />
+        <img src="img/zabbix.jpg" />
+        <img src="img/pom.jpg" />
+        <img src="img/opennms.png" />
+    </div>    
 
-    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
-    </div>
+    <div id="slide20" class="step" data-x="7000" data-y="3500" data-rotate="0" data-scale="4">
+        <p>Beaucoup (trop) de solutions de supervision...</p>
+    </div>    
 
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <p>one more thing...</p>
-    </div>
+    <div id="slide21" class="step" data-x="9000" data-y="5000" data-rotate="180" data-scale="2">
+        <p>La bulle idéale...</p>
+        <canvas id="bulle6" width="210" height="210"></canvas>        
+        <p>... n'est pas une bulle</p>
+    </div>    
 
-    <!--
-        
-        And the last one shows full power and flexibility of impress.js.
-        
-        You can not only position element in 3D, but also rotate it around any axis.
-        So this one here will get rotated by -40 degrees (40 degrees anticlockwise) around X axis and
-        10 degrees (clockwise) around Y axis.
-        
-        You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
-        as `data-rotate` (these two are basically aliases).
-        
-    -->
-    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-        <span class="footnote">* beat that, prezi ;)</span>
-    </div>
+    <div id="slide22" class="step" data-x="10000" data-y="2500" data-rotate="90" data-scale="3">
+        <p>Des Solutions <span class="highlight">libres</span></p>
+        <p>Des Logiciels <span class="highlight">simple (KISS)</span></p>
+        <p>Des Architectures <span class="highlight">flexibles</span></p>
+    </div>    
 
+    <div id="slide23" class="step" data-x="20000" data-y="0" data-rotate="0" data-scale="1">
+        <p>Merci de votre attention !</p>
+    </div>    
+    
     <!--
         
         So to make a summary of all the possible attributes used to position presentation steps, we have:
